@@ -11,16 +11,17 @@ function BlockChain() {
 // NEW BLOCK HASH IS GENERATED BASED UPON PREV.. BLOCK HASHES
 // SHA256 algo with be used for HASH
 
-BlockChain.prototype.createNewBlock = function (nounce, prevBlockHash) {
+BlockChain.prototype.createNewBlock = function (prevBlockHash) {
   const newBlock = {
     index: this.chain.length + 1,
     timestamp: Date(Date.now()),
     transactions: this.pendingTransactions,
-    nounce,
     prevBlockHash,
   }
-  const hash = this.blockHash(prevBlockHash, newBlock)
+
+  const {nounce, hash} = this.POW(prevBlockHash, newBlock)
   newBlock.hash = hash
+  newBlock.nounce = nounce
   this.chain.push(newBlock)
   this.pendingTransactions = []
 
@@ -45,9 +46,25 @@ BlockChain.prototype.createNewTransaction = function (
   this.pendingTransactions.push(newTransaction)
 }
 
-BlockChain.prototype.blockHash = function (prevBlockHash, currentBlockData) {
-  const dataString = `${prevBlockHash}${currentBlockData}`
+BlockChain.prototype.blockHash = function (
+  prevBlockHash,
+  currentBlockData,
+  nounce,
+) {
+  const dataString = `${prevBlockHash}${currentBlockData}${nounce}`
   return sha256(dataString)
+}
+
+BlockChain.prototype.POW = function (prevBlockHash, currentBlockData) {
+  let nounce = 0
+  let hash = this.blockHash(prevBlockHash, currentBlockData, nounce)
+
+  while (hash.substring(0, 4) !== '0000') {
+    nounce++
+    hash = this.blockHash(prevBlockHash, currentBlockData, nounce)
+  }
+
+  return { nounce, hash }
 }
 
 module.exports = BlockChain

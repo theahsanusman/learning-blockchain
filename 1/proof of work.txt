@@ -1,0 +1,8 @@
+1. Blockchain is the combination of blocks
+
+
+2. What is Proof of work / Mining?
+Validates blocks and check whether sending having enough coins or tokens that the sender is sending!
+
+How Proof of Work works?
+It uses hashing in this case (SHA256) Alogrithm
