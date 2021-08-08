@@ -4,6 +4,14 @@ const sha256 = require('sha256')
 function BlockChain() {
   this.chain = []
   this.pendingTransactions = []
+  this.chain.push({
+      index: 1,
+      timestamp: Date(Date.now()),
+      transactions:[],
+      prevBlockHash:'0',
+      hash:'0',
+      nounce:100,
+  })
 }
 
 // Method

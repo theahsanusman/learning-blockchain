@@ -6,3 +6,9 @@ Validates blocks and check whether sending having enough coins or tokens that th
 
 How Proof of Work works?
 It uses hashing in this case (SHA256) Alogrithm
+
+Why use SHA256?
+Bcz to have unique Id for data no-matter how much small or big data but get unique id
+and in blocks if someone tries to change one block let's say 5th block then 6th will report
+that previous block hash changed and it will disturb whole blockchain to alert about data change
+so that's why to avoid data changing from blocks SHA256 is being used!
