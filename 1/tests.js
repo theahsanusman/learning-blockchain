@@ -1,4 +1,4 @@
-const BlockChain = require('./index')
+const BlockChain = require('./blockchain')
 
 const Bitcoin = new BlockChain()
 const chain = Bitcoin.chain;
