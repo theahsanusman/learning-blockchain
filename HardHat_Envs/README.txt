@@ -1,0 +1,1 @@
+Repo is regarding the practice code that i wrote while learning Solidity

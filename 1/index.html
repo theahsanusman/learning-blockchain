@@ -27,7 +27,7 @@
       let receiverAdresss = document.getElementById('receiverAdresss').value
       let amount = document.getElementById('amount').value
       fetch(
-        `http://localhost:20000/transaction?sender=${senderAdresss}&receiver=${receiverAdresss}&amount=${amount}`,
+        `https://localhost:5500/transaction?sender=${senderAdresss}&receiver=${receiverAdresss}&amount=${amount}`,
       ).then((res) => console.log(res))
     }
   </script>
@@ -52,13 +52,13 @@
               <a class="nav-link active" aria-current="page" href="/">SEND</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/blocks">BLOCKS</a>
+              <a class="nav-link" href="/blocks.html">BLOCKS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/transactions">Transactions</a>
+              <a class="nav-link" href="/transactions.html">Transactions</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/mine">MINE</a>
+              <a class="nav-link" href="/mine.html">MINE</a>
             </li>
           </ul>
         </div>

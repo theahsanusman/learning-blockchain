@@ -67,9 +67,10 @@ BlockChain.prototype.POW = function (prevBlockHash, currentBlockData) {
   let nounce = 0
   let hash = this.blockHash(prevBlockHash, currentBlockData, nounce)
 
-  while (hash.substring(0, 4) !== '0000') {
+  while (hash.substring(0, 4) !== '00000000') {
     nounce++
     hash = this.blockHash(prevBlockHash, currentBlockData, nounce)
+    console.log(nounce)
   }
 
   return { nounce, hash }
