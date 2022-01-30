@@ -6,9 +6,15 @@ async function main() {
 
     console.log("Test deployed to:", test.address);
 
-    console.log(await (await (test.result())).toString());
+    // console.log(await (await test.age()).toString())
 
-    console.log(await (await test.bNo()).toString());
+    // const tx = await test.updateAge(11);
+    // tx.wait();
+
+    // console.log(await (await test.age()).toString())
+
+    console.log(await test.getFullName());
+
 }
 
 main().catch((error) => {
